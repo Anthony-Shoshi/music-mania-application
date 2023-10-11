@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="431.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.musicmaniaapplication.Controllers.LoginController">
+   <ImageView fitHeight="87.0" fitWidth="102.0" layoutX="249.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
+
+    <Label layoutX="216.0" layoutY="100.0" text="Music Mania">
+      <font>
+         <Font size="30.0" />
+      </font></Label>
+   <Label layoutX="275.0" layoutY="149.0" text="LOGIN">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
+   <Label fx:id="displayMessage" layoutX="229.0" layoutY="185.0" textFill="RED">
+      <font>
+         <Font size="11.0" />
+      </font>
+   </Label>
+   <Label layoutX="230.0" layoutY="209.0" text="Username" />
+   <TextField fx:id="username" layoutX="230.0" layoutY="229.0" />
+   <Label layoutX="230.0" layoutY="272.0" text="Password" />
+   <PasswordField fx:id="passwordField" layoutX="230.0" layoutY="292.0" onTextChange="#handlePasswordChange" />
+   <Button fx:id="loginButton" disable="true" layoutX="230.0" layoutY="343.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="25.0" prefWidth="149.0" text="Login" />
+
+</AnchorPane>
