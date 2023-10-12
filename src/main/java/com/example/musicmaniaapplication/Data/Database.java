@@ -10,8 +10,8 @@ public class Database {
     private List<User> users = new ArrayList<>();
 
     public Database() {
-        users.add(new User("Anthony", "anthony1@", UserType.Manager));
-        users.add(new User("Gomes", "gomes1@", UserType.Sales));
+        users.add(new User("anthony", "anthony1@", UserType.Manager));
+        users.add(new User("andrew", "andrew1@", UserType.Sales));
     }
 
     public User getUser(String username, String password) {

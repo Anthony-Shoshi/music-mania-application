@@ -5,8 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="431.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.musicmaniaapplication.Controllers.LoginController">
-   <ImageView fitHeight="87.0" fitWidth="102.0" layoutX="249.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
+<AnchorPane prefHeight="430.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <ImageView fx:id="logo" fitHeight="87.0" fitWidth="102.0" layoutX="249.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="249.0" AnchorPane.rightAnchor="249.0" AnchorPane.topAnchor="14.0" />
 
     <Label layoutX="216.0" layoutY="100.0" text="Music Mania">
       <font>

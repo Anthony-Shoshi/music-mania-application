@@ -2,12 +2,15 @@ package com.example.musicmaniaapplication.Controllers;
 
 import com.example.musicmaniaapplication.Data.Database;
 import com.example.musicmaniaapplication.Models.User;
+import com.example.musicmaniaapplication.Utils.Constants;
+import com.example.musicmaniaapplication.Utils.Helper;
 import com.example.musicmaniaapplication.Utils.SceneFactory;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class LoginController {
@@ -16,8 +19,13 @@ public class LoginController {
     public TextField passwordField;
     public Button loginButton;
     public Label displayMessage;
+    public ImageView logo;
 
     private Database db;
+
+    public void initialize() {
+        Helper.loadLogo(logo, Constants.LOGO);
+    }
 
     public void handlePasswordChange(StringProperty observable, String oldValue, String newValue) {
         loginButton.setDisable(!validatePassword(newValue));
@@ -63,7 +71,7 @@ public class LoginController {
         db = new Database();
         User loggedInUser = db.getUser(username, password);
         if (loggedInUser != null) {
-            SceneFactory.loadScene("main-view.fxml", new MainController(loggedInUser), "Main View", (Stage) loginButton.getScene().getWindow());
+            SceneFactory.loadScene("main-view.fxml", new MainController(loggedInUser), "Main View", (Stage) loginButton.getScene().getWindow(), 800, 550);
         } else {
             displayMessage.setText("Incorrect username or password. Please try again.");
         }

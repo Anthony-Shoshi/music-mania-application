@@ -1,0 +1,15 @@
+.button {
+    -fx-background-color: lightblue; /* Set your desired background color */
+}
+
+.sidebar {
+    -fx-background-color: #378a4c;
+}
+
+.main-screen {
+    -fx-background-color: #8dbd9a;
+}
+
+.menu-buttons {
+    -fx-background-color: #8dbd9a;
+}
