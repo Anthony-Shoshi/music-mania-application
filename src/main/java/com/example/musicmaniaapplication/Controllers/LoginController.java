@@ -75,7 +75,6 @@ public class LoginController {
         } else {
             displayMessage.setText("Incorrect username or password. Please try again.");
         }
-
     }
 
 }
