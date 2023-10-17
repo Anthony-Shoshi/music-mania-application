@@ -9,6 +9,8 @@ import com.example.musicmaniaapplication.Utils.SceneFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -56,18 +58,36 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Helper.loadLogo(logo, Constants.LOGO);
         menuShowHide();
+        setActiveStyleClass(dashboardButton);
         if (loggedInUser != null) {
             SceneFactory.loadContent("dashboard-view.fxml", new DashboardController(loggedInUser), mainContent);
         }
         database = new Database();
     }
 
+    private void setActiveStyleClass(Button activeButton) {
+        Parent container = activeButton.getParent();
+        for (Node node : container.getChildrenUnmodifiable()) {
+            if (node instanceof Button button) {
+                if (button == activeButton) {
+                    button.getStyleClass().clear();
+                    button.getStyleClass().add("active-button");
+                } else {
+                    button.getStyleClass().clear();
+                    button.getStyleClass().add("menu-buttons");
+                }
+            }
+        }
+    }
+
     public void handleDashboardButton(ActionEvent actionEvent) {
         SceneFactory.loadContent("dashboard-view.fxml", new DashboardController(loggedInUser), mainContent);
+        setActiveStyleClass(dashboardButton);
     }
 
     public void handleCreateOrderButton(ActionEvent actionEvent) {
         SceneFactory.loadContent("create-order.fxml", new CreateOrderController(database), mainContent);
+        setActiveStyleClass(createOrderButton);
     }
 
     public void handleProductInventoryButton(ActionEvent actionEvent) {

@@ -9,7 +9,7 @@
 <AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <AnchorPane layoutX="63.0" layoutY="-9.0" prefHeight="550.0" prefWidth="220.0"
-                    style="-fx-background-color: #378a4c;" styleClass="sidebar" AnchorPane.bottomAnchor="0.0"
+                    styleClass="sidebar" AnchorPane.bottomAnchor="0.0"
                     AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <VBox fx:id="menuItems" alignment="TOP_CENTER" layoutX="25.0" layoutY="137.0" prefHeight="396.0"
@@ -17,7 +17,7 @@
                       AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="137.0">
                     <children>
                         <Button fx:id="dashboardButton" mnemonicParsing="false" onAction="#handleDashboardButton"
-                                prefWidth="200.0" style="-fx-background-color: #8dbd9a;" styleClass="menu-buttons"
+                                prefWidth="200.0" styleClass="menu-buttons"
                                 text="Dashboard">
                             <padding>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
@@ -27,7 +27,7 @@
                             </font>
                         </Button>
                         <Button fx:id="createOrderButton" mnemonicParsing="false" onAction="#handleCreateOrderButton"
-                                prefWidth="200.0" style="-fx-background-color: #8dbd9a;" styleClass="menu-buttons"
+                                prefWidth="200.0" styleClass="menu-buttons"
                                 text="Create Order">
                             <padding>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
@@ -38,7 +38,7 @@
                         </Button>
                         <Button fx:id="productInventoryButton" mnemonicParsing="false"
                                 onAction="#handleProductInventoryButton" prefWidth="200.0"
-                                style="-fx-background-color: #8dbd9a;" styleClass="menu-buttons"
+                                styleClass="menu-buttons"
                                 text="Product Inventory">
                             <padding>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
@@ -49,7 +49,7 @@
                         </Button>
                         <Button fx:id="orderHistoryButton" layoutX="10.0" layoutY="60.0" mnemonicParsing="false"
                                 onAction="#handleOrderHistoryButton" prefWidth="200.0"
-                                style="-fx-background-color: #8dbd9a;" styleClass="menu-buttons" text="Order History">
+                                styleClass="menu-buttons" text="Order History">
                             <padding>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                             </padding>
@@ -58,7 +58,7 @@
                             </font>
                         </Button>
                         <Button fx:id="logoutButton" layoutX="10.0" layoutY="187.0" mnemonicParsing="false"
-                                onAction="#handleLogoutButton" prefWidth="200.0" style="-fx-background-color: #8dbd9a;"
+                                onAction="#handleLogoutButton" prefWidth="200.0"
                                 styleClass="menu-buttons" text="Logout">
                             <padding>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
@@ -77,7 +77,7 @@
                            AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="10.0"/>
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="mainContent" style="-fx-background-color: #8dbd9a;" styleClass="main-screen"
+        <AnchorPane fx:id="mainContent" styleClass="main-screen"
                     AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="0.0"
                     AnchorPane.topAnchor="0.0"/>
     </children>

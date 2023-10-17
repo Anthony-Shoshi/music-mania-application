@@ -1,5 +1,6 @@
 package com.example.musicmaniaapplication.Utils;
 
+import com.example.musicmaniaapplication.Controllers.MainController;
 import com.example.musicmaniaapplication.MusicManiaApplication;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -20,8 +21,8 @@ public class SceneFactory {
             FXMLLoader fxmlLoader = new FXMLLoader(MusicManiaApplication.class.getResource(name));
             fxmlLoader.setController(controller);
             Scene scene = new Scene(fxmlLoader.load());
-            if (controller.getClass().getName().equals("MainController")) {
-                scene.getStylesheets().add(MusicManiaApplication.class.getResource("css/style.css").toExternalForm());
+            if (controller instanceof MainController) {
+                scene.getStylesheets().add(MusicManiaApplication.class.getResource(Constants.CSS_PATH).toExternalForm());
             }
             window.setTitle(title);
             window.setScene(scene);
@@ -39,6 +40,21 @@ public class SceneFactory {
             mainContent.getChildren().add(content);
         } catch (IOException e) {
             throw new RuntimeException("error in loadContent method: " + e.getMessage());
+        }
+    }
+
+    public static void loadDialog(String name, Object controller, String title) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(MusicManiaApplication.class.getResource(name));
+            fxmlLoader.setController(controller);
+            Scene scene = new Scene(fxmlLoader.load());
+
+            Stage dialog = new Stage();
+            dialog.setScene(scene);
+            dialog.setTitle(title);
+            dialog.showAndWait();
+        } catch (IOException e) {
+            throw new RuntimeException("error in load dialog method: " + e.getMessage());
         }
     }
 }

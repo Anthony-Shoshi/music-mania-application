@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.musicmaniaapplication.Controllers.AddProductDialogController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
 
+    <Label layoutX="20.0" layoutY="174.0" text="Select Product" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+    <TableView fx:id="productTableView" layoutX="14.0" layoutY="47.0" prefHeight="231.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+        <columns>
+            <TableColumn minWidth="60.0" prefWidth="75.0" text="Stock">
+                <cellValueFactory>
+                    <PropertyValueFactory property="stock" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn minWidth="200.0" prefWidth="75.0" text="Name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="name" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn minWidth="100.0" prefWidth="75.0" text="Category">
+                <cellValueFactory>
+                    <PropertyValueFactory property="category" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn minWidth="60.0" prefWidth="75.0" text="Price">
+                <cellValueFactory>
+                    <PropertyValueFactory property="price" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn minWidth="150.0" prefWidth="75.0" text="Description">
+                <cellValueFactory>
+                    <PropertyValueFactory property="description" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+   <HBox layoutX="20.0" layoutY="302.0" spacing="20.0" AnchorPane.leftAnchor="20.0">
+      <children>
+         <Label text="Quantity:" />
+         <TextField fx:id="productQuantity" onTextChange="#quantityOnChange" />
+      </children>
+   </HBox>
+   <Label fx:id="quantityErrorMessage" layoutX="88.0" layoutY="329.0" textFill="RED" />
+    <HBox layoutX="18.0" layoutY="430.0" spacing="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0">
+        <children>
+            <Button mnemonicParsing="false" fx:id="addToOrder" disable="true" onAction="#addToOrderClick" text="Add to Order" />
+            <Button mnemonicParsing="false" onAction="#cancelClick" text="Cancel" />
+        </children>
+    </HBox>
 </AnchorPane>
