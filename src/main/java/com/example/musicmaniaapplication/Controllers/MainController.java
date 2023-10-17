@@ -1,5 +1,6 @@
 package com.example.musicmaniaapplication.Controllers;
 
+import com.example.musicmaniaapplication.Data.Database;
 import com.example.musicmaniaapplication.Models.User;
 import com.example.musicmaniaapplication.Models.UserType;
 import com.example.musicmaniaapplication.Utils.Constants;
@@ -31,6 +32,7 @@ public class MainController implements Initializable {
     @FXML
     public AnchorPane mainContent;
     public ImageView logo;
+    Database database;
 
     public MainController(User user) {
         this.loggedInUser = user;
@@ -57,6 +59,7 @@ public class MainController implements Initializable {
         if (loggedInUser != null) {
             SceneFactory.loadContent("dashboard-view.fxml", new DashboardController(loggedInUser), mainContent);
         }
+        database = new Database();
     }
 
     public void handleDashboardButton(ActionEvent actionEvent) {
@@ -64,7 +67,7 @@ public class MainController implements Initializable {
     }
 
     public void handleCreateOrderButton(ActionEvent actionEvent) {
-        SceneFactory.loadContent("create-order.fxml", new CreateOrderController(), mainContent);
+        SceneFactory.loadContent("create-order.fxml", new CreateOrderController(database), mainContent);
     }
 
     public void handleProductInventoryButton(ActionEvent actionEvent) {
@@ -74,6 +77,6 @@ public class MainController implements Initializable {
     }
 
     public void handleLogoutButton(ActionEvent actionEvent) {
-        SceneFactory.loadScene("login.fxml", new LoginController(), "Login", (Stage) logoutButton.getScene().getWindow(), 600, 430);
+        SceneFactory.loadScene("login.fxml", new LoginController(), "Login", (Stage) logoutButton.getScene().getWindow());
     }
 }

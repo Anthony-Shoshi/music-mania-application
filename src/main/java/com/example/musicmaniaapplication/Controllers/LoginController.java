@@ -71,7 +71,7 @@ public class LoginController {
         db = new Database();
         User loggedInUser = db.getUser(username, password);
         if (loggedInUser != null) {
-            SceneFactory.loadScene("main-view.fxml", new MainController(loggedInUser), "Main View", (Stage) loginButton.getScene().getWindow(), 800, 550);
+            SceneFactory.loadScene("main-view.fxml", new MainController(loggedInUser), "Main View", (Stage) loginButton.getScene().getWindow());
         } else {
             displayMessage.setText("Incorrect username or password. Please try again.");
         }

@@ -1,13 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label layoutX="24.0" layoutY="26.0" text="First Name" />
-      <Label layoutX="24.0" layoutY="59.0" text="Last Name" />
-      <TextField layoutX="107.0" layoutY="22.0" />
-      <TextField layoutX="107.0" layoutY="55.0" />
-   </children>
+<AnchorPane minHeight="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <VBox alignment="CENTER_LEFT" layoutX="31.0" layoutY="10.0" spacing="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <Label text="First Name:" />
+                <Label text="Last Name:" />
+                <Label text="Email Address:" />
+                <Label text="Phone Number:" />
+            </children>
+        </VBox>
+        <VBox layoutX="115.0" layoutY="14.0" spacing="10.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <TextField fx:id="customerFirstName" />
+                <TextField fx:id="customerLastName" />
+                <TextField fx:id="customerEmail" />
+                <TextField fx:id="customerPhoneNumber" />
+            </children>
+        </VBox>
+        <TableView fx:id="productTableView" layoutX="20.0" layoutY="205.0" prefHeight="231.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+            <columns>
+                <TableColumn minWidth="120.0" prefWidth="75.0" text="Quantity">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="stock" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="200.0" prefWidth="75.0" text="Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="150.0" prefWidth="75.0" text="Category">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="category" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="90.0" prefWidth="75.0" text="Price">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="price" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <Label layoutX="20.0" layoutY="174.0" text="Products" AnchorPane.leftAnchor="20.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+      <HBox layoutX="18.0" layoutY="430.0" spacing="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#addProductClick" text="Add Product" />
+            <Button mnemonicParsing="false" onAction="#deleteProductClick" text="Delete Product" />
+            <Button mnemonicParsing="false" onAction="#createOrderClick" text="Create Order" />
+         </children>
+      </HBox>
+    </children>
 </AnchorPane>

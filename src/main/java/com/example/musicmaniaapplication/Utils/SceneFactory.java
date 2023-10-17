@@ -15,11 +15,11 @@ public class SceneFactory {
     private SceneFactory() {
     }
 
-    public static void loadScene(String name, Object controller, String title, Stage window, double width, double height) {
+    public static void loadScene(String name, Object controller, String title, Stage window) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MusicManiaApplication.class.getResource(name));
             fxmlLoader.setController(controller);
-            Scene scene = new Scene(fxmlLoader.load(), width, height);
+            Scene scene = new Scene(fxmlLoader.load());
             if (controller.getClass().getName().equals("MainController")) {
                 scene.getStylesheets().add(MusicManiaApplication.class.getResource("css/style.css").toExternalForm());
             }
