@@ -1,11 +1,9 @@
 package com.example.musicmaniaapplication.Controllers;
 
 import com.example.musicmaniaapplication.Data.Database;
-import com.example.musicmaniaapplication.Models.OrderItems;
+import com.example.musicmaniaapplication.Models.OrderProduct;
 import com.example.musicmaniaapplication.Models.Product;
-import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,7 +26,7 @@ public class AddProductDialogController implements Initializable {
     private ObservableList<Product> products;
     private Product selectedProduct;
     private Database database;
-    private OrderItems orderItem;
+    private OrderProduct orderItem;
 
     public AddProductDialogController(Database database) {
         this.database = database;
@@ -44,18 +42,15 @@ public class AddProductDialogController implements Initializable {
             productTableView.getSelectionModel().selectFirst();
             selectedProduct = products.get(0);
         }
-        productTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Product>() {
-            @Override
-            public void changed(ObservableValue<? extends Product> observableValue, Product oldProduct, Product newProduct) {
-                if (productTableView.getSelectionModel().getSelectedItem() != null) {
-                    selectedProduct = newProduct;
-                }
+        productTableView.getSelectionModel().selectedItemProperty().addListener((ChangeListener<Product>) (observableValue, oldProduct, newProduct) -> {
+            if (productTableView.getSelectionModel().getSelectedItem() != null) {
+                selectedProduct = newProduct;
             }
         });
     }
 
-    public void quantityOnChange(StringProperty observable, String oldValue, String newValue) {
-        if (!isValidQuantity(newValue) || newValue.isEmpty()) {
+    public void quantityOnChange(String newValue) {
+        if (!newValue.matches("\\d*") || newValue.isEmpty()) {
             quantityErrorMessage.setText("Quantity must be numeric value");
             productQuantity.setText("");
             addToOrder.setDisable(true);
@@ -65,19 +60,8 @@ public class AddProductDialogController implements Initializable {
         }
     }
 
-    private boolean isValidQuantity(String newValue) {
-        char[] characters = newValue.toCharArray();
-        for (char character :
-                characters) {
-            if (Character.isDigit(character)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public void addToOrderClick(ActionEvent event) {
-        orderItem = new OrderItems(selectedProduct, Integer.parseInt(productQuantity.getText()));
+        orderItem = new OrderProduct(selectedProduct, Integer.parseInt(productQuantity.getText()));
         closeDialog(event);
     }
 
@@ -90,7 +74,7 @@ public class AddProductDialogController implements Initializable {
         closeDialog(event);
     }
 
-    public OrderItems getOrderItem() {
+    public OrderProduct getOrderItem() {
         return orderItem;
     }
 }

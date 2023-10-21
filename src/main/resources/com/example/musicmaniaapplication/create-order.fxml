@@ -5,45 +5,44 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane minHeight="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="494.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <VBox alignment="CENTER_LEFT" layoutX="31.0" layoutY="10.0" spacing="20.0" AnchorPane.leftAnchor="20.0"
-              AnchorPane.topAnchor="20.0">
+        <VBox alignment="CENTER_LEFT" layoutX="31.0" layoutY="10.0" spacing="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
             <children>
-                <Label text="First Name:"/>
-                <Label text="Last Name:"/>
-                <Label text="Email Address:"/>
-                <Label text="Phone Number:"/>
+                <Label text="First Name:" />
+                <Label text="Last Name:" />
+                <Label text="Email Address:" />
+                <Label text="Phone Number:" />
             </children>
         </VBox>
         <VBox layoutX="115.0" layoutY="14.0" spacing="10.0" AnchorPane.topAnchor="20.0">
             <children>
-                <TextField fx:id="customerFirstName"/>
-                <TextField fx:id="customerLastName"/>
-                <TextField fx:id="customerEmail"/>
-                <TextField fx:id="customerPhoneNumber"/>
+                <TextField fx:id="customerFirstName" />
+                <TextField fx:id="customerLastName" />
+                <TextField fx:id="customerEmail" />
+                <TextField fx:id="customerPhoneNumber" />
             </children>
         </VBox>
+      <Label fx:id="orderErrorMessage" layoutX="115.0" layoutY="157.0" textFill="RED" />
         <Label layoutX="20.0" layoutY="174.0" text="Products" AnchorPane.leftAnchor="20.0">
             <font>
-                <Font name="System Bold" size="18.0"/>
+                <Font name="System Bold" size="18.0" />
             </font>
         </Label>
-        <TableView fx:id="orderItemTableView" layoutX="20.0" layoutY="205.0" prefHeight="231.0"
-                   AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+        <TableView fx:id="orderItemTableView" layoutX="20.0" layoutY="205.0" prefHeight="231.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
             <columns>
                 <TableColumn minWidth="120.0" prefWidth="75.0" text="Quantity">
                     <cellValueFactory>
-                        <PropertyValueFactory property="quantity"/>
+                        <PropertyValueFactory property="quantity" />
                     </cellValueFactory>
                 </TableColumn>
             </columns>
         </TableView>
         <HBox layoutX="18.0" layoutY="430.0" spacing="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#addProductClick" text="Add Product"/>
-                <Button mnemonicParsing="false" onAction="#deleteProductClick" text="Delete Product"/>
-                <Button mnemonicParsing="false" onAction="#createOrderClick" text="Create Order"/>
+                <Button mnemonicParsing="false" onAction="#addProductClick" text="Add Product" />
+                <Button mnemonicParsing="false" onAction="#deleteProductClick" text="Delete Product" />
+                <Button mnemonicParsing="false" onAction="#createOrderClick" text="Create Order" />
             </children>
         </HBox>
     </children>

@@ -1,10 +1,10 @@
 package com.example.musicmaniaapplication.Models;
 
-public class OrderItems {
+public class OrderProduct {
     private Product product;
     private int quantity;
 
-    public OrderItems(Product product, int quantity) {
+    public OrderProduct(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
     }

@@ -1,9 +1,6 @@
 package com.example.musicmaniaapplication.Data;
 
-import com.example.musicmaniaapplication.Models.OrderItems;
-import com.example.musicmaniaapplication.Models.Product;
-import com.example.musicmaniaapplication.Models.User;
-import com.example.musicmaniaapplication.Models.UserType;
+import com.example.musicmaniaapplication.Models.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +8,8 @@ import java.util.List;
 public class Database {
     private List<User> users = new ArrayList<>();
     private List<Product> products = new ArrayList<>();
-    private List<OrderItems> orderItems = new ArrayList<>();
+    private List<OrderProduct> orderProducts = new ArrayList<>();
+    private List<Order> orders = new ArrayList<>();
 
     public Database() {
         //users
@@ -23,9 +21,6 @@ public class Database {
         Product product2 = new Product("product 2", "Car", 15, 900.00, "This is product 2.");
         products.add(product1);
         products.add(product2);
-
-        //order items
-//        orderItems.add(new OrderItems(product1, 1));
     }
 
     public User getUser(String username, String password) {
@@ -42,7 +37,11 @@ public class Database {
         return products;
     }
 
-    public List<OrderItems> getOrderItems() {
-        return orderItems;
+    public List<OrderProduct> getOrderProducts() {
+        return orderProducts;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
     }
 }

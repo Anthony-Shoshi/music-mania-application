@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b2efdd2-db50-49ff-9ac9-b53e85e13250" name="Changes" comment="create order page and display product">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Models/OrderItems.java" afterDir="false" />
+    <list default="true" id="7b2efdd2-db50-49ff-9ac9-b53e85e13250" name="Changes" comment="order place functionality">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Models/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/AddProductDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/AddProductDialogController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/CreateOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/CreateOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Data/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Data/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Utils/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Utils/SceneFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Utils/SceneFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Models/OrderItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Models/OrderProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/add-product-dialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/add-product-dialog.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/create-order.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/create-order.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/images/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,24 +40,28 @@
   <component name="ProjectId" id="2WZYgORGYQfNkMX9FmIgmXMDeFe" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.musicmaniaapplication.Models" />
@@ -89,7 +91,10 @@
       <workItem from="1697140788964" duration="270000" />
       <workItem from="1697383582826" duration="9196000" />
       <workItem from="1697477764134" duration="17855000" />
-      <workItem from="1697583292040" duration="1491000" />
+      <workItem from="1697583292040" duration="1577000" />
+      <workItem from="1697624276679" duration="3751000" />
+      <workItem from="1697629197426" duration="4743000" />
+      <workItem from="1697919850645" duration="4055000" />
     </task>
     <task id="LOCAL-00001" summary="login functionality">
       <option name="closed" value="true" />
@@ -115,7 +120,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697566409677</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add to order and menu button active">
+      <option name="closed" value="true" />
+      <created>1697584859716</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1697584859716</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +149,8 @@
     <MESSAGE value="login functionality" />
     <MESSAGE value="menu item navigation" />
     <MESSAGE value="create order page and display product" />
-    <option name="LAST_COMMIT_MESSAGE" value="create order page and display product" />
+    <MESSAGE value="add to order and menu button active" />
+    <MESSAGE value="order place functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="order place functionality" />
   </component>
 </project>
