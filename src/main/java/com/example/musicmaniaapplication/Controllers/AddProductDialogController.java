@@ -3,6 +3,7 @@ package com.example.musicmaniaapplication.Controllers;
 import com.example.musicmaniaapplication.Data.Database;
 import com.example.musicmaniaapplication.Models.OrderProduct;
 import com.example.musicmaniaapplication.Models.Product;
+import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -49,7 +50,7 @@ public class AddProductDialogController implements Initializable {
         });
     }
 
-    public void quantityOnChange(String newValue) {
+    public void quantityOnChange(StringProperty observable, String oldValue, String newValue) {
         if (!newValue.matches("\\d*") || newValue.isEmpty()) {
             quantityErrorMessage.setText("Quantity must be numeric value");
             productQuantity.setText("");

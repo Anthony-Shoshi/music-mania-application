@@ -66,4 +66,10 @@ public class Order {
     public void setOrderDateTime(LocalDateTime orderDateTime) {
         this.orderDateTime = orderDateTime;
     }
+
+    public double calculateTotalPrice() {
+        return products.stream()
+                .mapToDouble(orderProduct -> orderProduct.getProduct().getPrice())
+                .sum();
+    }
 }

@@ -65,7 +65,7 @@ public class LoginController {
         }
     }
 
-    public void handleSubmitButtonAction(ActionEvent actionEvent) {
+    public void handleSubmitButtonAction() {
         String username = this.username.getText();
         String password = passwordField.getText();
         db = new Database();

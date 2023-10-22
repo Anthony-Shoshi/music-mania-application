@@ -94,6 +94,8 @@ public class MainController implements Initializable {
     }
 
     public void handleOrderHistoryButton(ActionEvent actionEvent) {
+        SceneFactory.loadContent("order-history.fxml", new OrderHistoryController(database), mainContent);
+        setActiveStyleClass(orderHistoryButton);
     }
 
     public void handleLogoutButton(ActionEvent actionEvent) {

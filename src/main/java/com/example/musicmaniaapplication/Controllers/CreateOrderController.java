@@ -12,11 +12,13 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -24,12 +26,19 @@ import java.util.ResourceBundle;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class CreateOrderController implements Initializable {
+    @FXML
     public TableView orderItemTableView;
     public TextField customerFirstName;
     public TextField customerLastName;
     public TextField customerEmail;
     public TextField customerPhoneNumber;
     public Label orderErrorMessage;
+    @FXML
+    public TableColumn<OrderProduct, String> productName;
+    @FXML
+    public TableColumn<OrderProduct, String> category;
+    @FXML
+    public TableColumn<OrderProduct, String> price;
     private ObservableList<OrderProduct> orderProducts;
     private Database database;
     private OrderProduct selectedProduct = null;
@@ -40,7 +49,6 @@ public class CreateOrderController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         orderProducts = FXCollections.observableList(database.getOrderProducts());
         orderItemTableView.setItems(orderProducts);
 
@@ -50,25 +58,15 @@ public class CreateOrderController implements Initializable {
     }
 
     private void addCustomColumns() {
-        TableColumn<OrderProduct, String> productNameColumn = new TableColumn<>("Name");
-        TableColumn<OrderProduct, String> productCategoryColumn = new TableColumn<>("Category");
-        TableColumn<OrderProduct, Number> productPriceColumn = new TableColumn<>("Price");
-
-        productNameColumn.setCellValueFactory(pn -> {
-            OrderProduct orderItem = pn.getValue();
-            return new SimpleStringProperty(orderItem.getProduct().getName());
+        productName.setCellValueFactory(pn -> new SimpleStringProperty(pn.getValue().getProduct().getName()));
+        category.setCellValueFactory(cat -> new SimpleStringProperty(cat.getValue().getProduct().getCategory()));
+        price.setCellValueFactory(cellData -> {
+            OrderProduct orderProduct = cellData.getValue();
+            Double productPrice = orderProduct.getProduct().getPrice();
+            DecimalFormat decimalFormat = new DecimalFormat("#0.00");
+            String formattedPrice = decimalFormat.format(productPrice);
+            return new SimpleStringProperty(formattedPrice);
         });
-        productCategoryColumn.setCellValueFactory(pc -> {
-            OrderProduct orderItem = pc.getValue();
-            return new SimpleStringProperty(orderItem.getProduct().getCategory());
-        });
-        productPriceColumn.setCellValueFactory(pp -> {
-            OrderProduct orderItem = pp.getValue();
-            return new SimpleDoubleProperty(orderItem.getProduct().getPrice());
-        });
-
-        orderItemTableView.getColumns().addAll(productNameColumn, productCategoryColumn, productPriceColumn);
-        orderItemTableView.setPrefWidth(USE_COMPUTED_SIZE);
     }
 
     public void addProductClick() {
@@ -103,8 +101,8 @@ public class CreateOrderController implements Initializable {
         } else if (cusPhone.isEmpty()) {
             orderErrorMessage.setText("Phone Number field is required.");
         } else {
-            orderErrorMessage.setText("Order placed successfully!");
             orderErrorMessage.setTextFill(Color.GREEN);
+            orderErrorMessage.setText("Order placed successfully!");
             database.getOrders().add(new Order(cusFirstName, cusLastName, cusEmail, cusPhone, orderProducts));
             updateStock();
             resetOrderForm();
@@ -120,10 +118,10 @@ public class CreateOrderController implements Initializable {
 
     private void resetOrderForm() {
         selectedProduct = null;
+        orderProducts.clear();
         customerFirstName.setText("");
         customerLastName.setText("");
         customerEmail.setText("");
         customerPhoneNumber.setText("");
-        orderErrorMessage.setTextFill(Color.RED);
     }
 }
