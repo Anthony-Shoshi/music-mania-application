@@ -68,8 +68,12 @@ public class Order {
     }
 
     public double calculateTotalPrice() {
-        return products.stream()
-                .mapToDouble(orderProduct -> orderProduct.getProduct().getPrice())
-                .sum();
+        double total = 0;
+        for (OrderProduct orderProduct:
+                products) {
+            double unitPrice = orderProduct.getProduct().getPrice() * orderProduct.getQuantity();
+            total += unitPrice;
+        }
+        return total;
     }
 }

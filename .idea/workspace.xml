@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b2efdd2-db50-49ff-9ac9-b53e85e13250" name="Changes" comment="order place functionality">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/OrderHistoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/order-history.fxml" afterDir="false" />
+    <list default="true" id="7b2efdd2-db50-49ff-9ac9-b53e85e13250" name="Changes" comment="order history design">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/AddProductDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/AddProductDialogController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/CreateOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/CreateOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/OrderHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/OrderHistoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Data/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Data/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/create-order.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/create-order.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/order-history.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/order-history.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +92,8 @@
       <workItem from="1697629197426" duration="4743000" />
       <workItem from="1697919850645" duration="10104000" />
       <workItem from="1697932037942" duration="2619000" />
+      <workItem from="1697934681246" duration="48000" />
+      <workItem from="1697974217095" duration="7845000" />
     </task>
     <task id="LOCAL-00001" summary="login functionality">
       <option name="closed" value="true" />
@@ -136,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697924119785</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="order history design">
+      <option name="closed" value="true" />
+      <created>1697934720494</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1697934720494</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +166,7 @@
     <MESSAGE value="create order page and display product" />
     <MESSAGE value="add to order and menu button active" />
     <MESSAGE value="order place functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="order place functionality" />
+    <MESSAGE value="order history design" />
+    <option name="LAST_COMMIT_MESSAGE" value="order history design" />
   </component>
 </project>

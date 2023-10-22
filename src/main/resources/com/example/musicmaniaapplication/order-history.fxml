@@ -1,29 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0">
-
-    <Label layoutX="20.0" layoutY="174.0" text="Order History" AnchorPane.leftAnchor="20.0"
-           AnchorPane.topAnchor="20.0">
-        <font>
-            <Font name="System Bold" size="18.0"/>
-        </font>
-    </Label>
-    <TableView fx:id="orderHistoryTableView" layoutX="14.0" layoutY="47.0" prefHeight="231.0" AnchorPane.leftAnchor="20.0"
-               AnchorPane.rightAnchor="20.0">
-        <columns>
-            <TableColumn fx:id="orderDate" minWidth="150.0" prefWidth="75.0" text="Date/Time">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox spacing="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <children>
+          <Label text="Order History">
+              <font>
+                  <Font name="System Bold" size="18.0" />
+              </font>
+          </Label>
+          <TableView fx:id="orderHistoryTableView">
+              <columns>
+                  <TableColumn fx:id="orderDate" minWidth="150.0" prefWidth="75.0" text="Date/Time">
             </TableColumn>
-            <TableColumn fx:id="customerFullName" minWidth="250.0" prefWidth="75.0" text="Name">
+                  <TableColumn fx:id="customerFullName" minWidth="250.0" prefWidth="75.0" text="Name">
             </TableColumn>
-            <TableColumn fx:id="totalPrice" minWidth="100.0" prefWidth="75.0" text="Total Price">
+                  <TableColumn fx:id="totalPrice" minWidth="100.0" prefWidth="75.0" text="Total Price">
             </TableColumn>
-        </columns>
-    </TableView>
+              </columns>
+          </TableView>
+            <Label layoutX="20.0" layoutY="174.0" text="Ordered Products" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Label>
+            <TableView fx:id="orderedProductTableView">
+                <columns>
+                    <TableColumn fx:id="productQuantity" minWidth="100.0" prefWidth="75.0" text="Quantity">
+                    </TableColumn>
+                    <TableColumn fx:id="productName" minWidth="200.0" prefWidth="75.0" text="Name">
+                    </TableColumn>
+                    <TableColumn fx:id="productCategory" minWidth="100.0" prefWidth="75.0" text="Category">
+                    </TableColumn>
+                    <TableColumn fx:id="productPrice" minWidth="100.0" prefWidth="75.0" text="Price">
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </children>
+    </VBox>
 
 </AnchorPane>

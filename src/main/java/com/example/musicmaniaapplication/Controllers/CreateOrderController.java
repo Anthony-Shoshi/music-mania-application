@@ -103,7 +103,13 @@ public class CreateOrderController implements Initializable {
         } else {
             orderErrorMessage.setTextFill(Color.GREEN);
             orderErrorMessage.setText("Order placed successfully!");
-            database.getOrders().add(new Order(cusFirstName, cusLastName, cusEmail, cusPhone, orderProducts));
+
+            List<OrderProduct> products = new ArrayList<>();
+            products.addAll(database.getOrderProducts());
+
+            Order order = new Order(cusFirstName, cusLastName, cusEmail, cusPhone, products);
+            database.getOrders().add(order);
+
             updateStock();
             resetOrderForm();
         }
