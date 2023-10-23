@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b2efdd2-db50-49ff-9ac9-b53e85e13250" name="Changes" comment="order history design">
+    <list default="true" id="7b2efdd2-db50-49ff-9ac9-b53e85e13250" name="Changes" comment="order history completed">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/CreateProductDialogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/EditProductDialogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/ProductInventoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/create-product-dialog.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/edit-product-dialog.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/product-inventory.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/CreateOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/CreateOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/OrderHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/OrderHistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Data/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Data/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/order-history.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/order-history.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,27 +44,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/Inholland/Term2.1/Java/ClassWork/MusicManiaApplication/src/main/resources/com/example/musicmaniaapplication",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.example.musicmaniaapplication.Models" />
       <recent name="com.example.musicmaniaapplication.Controllers" />
+      <recent name="com.example.musicmaniaapplication.Models" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Inholland\Term2.1\Java\ClassWork\MusicManiaApplication\src\main\resources\com\example\musicmaniaapplication" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Inholland\Term2.1\Java\ClassWork\MusicManiaApplication\src\main\resources\com\example\musicmaniaapplication\css" />
@@ -93,7 +100,8 @@
       <workItem from="1697919850645" duration="10104000" />
       <workItem from="1697932037942" duration="2619000" />
       <workItem from="1697934681246" duration="48000" />
-      <workItem from="1697974217095" duration="7845000" />
+      <workItem from="1697974217095" duration="8440000" />
+      <workItem from="1698041646947" duration="8148000" />
     </task>
     <task id="LOCAL-00001" summary="login functionality">
       <option name="closed" value="true" />
@@ -143,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697934720494</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="order history completed">
+      <option name="closed" value="true" />
+      <created>1697982352992</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1697982352992</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +183,7 @@
     <MESSAGE value="add to order and menu button active" />
     <MESSAGE value="order place functionality" />
     <MESSAGE value="order history design" />
-    <option name="LAST_COMMIT_MESSAGE" value="order history design" />
+    <MESSAGE value="order history completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="order history completed" />
   </component>
 </project>

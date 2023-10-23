@@ -23,9 +23,9 @@
       </font>
    </Label>
    <Label layoutX="230.0" layoutY="209.0" text="Username" />
-   <TextField fx:id="username" layoutX="230.0" layoutY="229.0" text="andrew" />
+   <TextField fx:id="username" layoutX="230.0" layoutY="229.0" text="anthony" />
    <Label layoutX="230.0" layoutY="272.0" text="Password" />
-   <PasswordField fx:id="passwordField" layoutX="230.0" layoutY="292.0" onTextChange="#handlePasswordChange" text="andrew1@" />
+   <PasswordField fx:id="passwordField" layoutX="230.0" layoutY="292.0" onTextChange="#handlePasswordChange" text="anthony1@" />
    <Button fx:id="loginButton" disable="true" layoutX="230.0" layoutY="343.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #1d5b2f;" text="Login" textFill="WHITE">
       <font>
          <Font name="System Bold" size="12.0" />

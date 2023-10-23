@@ -91,6 +91,8 @@ public class MainController implements Initializable {
     }
 
     public void handleProductInventoryButton(ActionEvent actionEvent) {
+        SceneFactory.loadContent("product-inventory.fxml", new ProductInventoryController(database), mainContent);
+        setActiveStyleClass(productInventoryButton);
     }
 
     public void handleOrderHistoryButton(ActionEvent actionEvent) {
