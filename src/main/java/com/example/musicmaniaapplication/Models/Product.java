@@ -1,6 +1,8 @@
 package com.example.musicmaniaapplication.Models;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private String name;
     private String category;
     private int stock;

@@ -74,6 +74,7 @@ public class CreateOrderController implements Initializable {
         SceneFactory.loadDialog("add-product-dialog.fxml", controller, "Add Product");
         if (controller.getOrderItem() != null) {
             orderProducts.add(controller.getOrderItem());
+            database.serializeDatabase();
         }
     }
 
@@ -84,6 +85,7 @@ public class CreateOrderController implements Initializable {
             orderProducts.remove(selectedProduct);
             orderErrorMessage.setText("");
             orderErrorMessage.setTextFill(Color.RED);
+            database.serializeDatabase();
         }
     }
 
@@ -109,6 +111,7 @@ public class CreateOrderController implements Initializable {
 
             Order order = new Order(cusFirstName, cusLastName, cusEmail, cusPhone, products);
             database.getOrders().add(order);
+            database.serializeDatabase();
 
             updateStock();
             resetOrderForm();
@@ -119,6 +122,7 @@ public class CreateOrderController implements Initializable {
         for (OrderProduct product :
                 orderProducts) {
             product.getProduct().setStock(product.getProduct().getStock() - product.getQuantity());
+            database.serializeDatabase();
         }
     }
 

@@ -67,6 +67,7 @@ public class CreateProductDialogController {
 
             if (errorMessage == null) {
                 product = new Product(name, category, stock, price, description);
+                createProductErrorMessage.setText("");
                 closeDialog(event);
             }
         }

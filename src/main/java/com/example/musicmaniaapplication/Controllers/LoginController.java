@@ -1,5 +1,6 @@
 package com.example.musicmaniaapplication.Controllers;
 
+import com.example.musicmaniaapplication.Controllers.MainController;
 import com.example.musicmaniaapplication.Data.Database;
 import com.example.musicmaniaapplication.Models.User;
 import com.example.musicmaniaapplication.Utils.Constants;
@@ -10,8 +11,12 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+
+import java.io.*;
+import java.util.Scanner;
 
 public class LoginController {
 
@@ -22,6 +27,10 @@ public class LoginController {
     public ImageView logo;
 
     private Database db;
+
+    public LoginController() {
+        db = new Database();
+    }
 
     public void initialize() {
         Helper.loadLogo(logo, Constants.LOGO);
@@ -68,7 +77,6 @@ public class LoginController {
     public void handleSubmitButtonAction() {
         String username = this.username.getText();
         String password = passwordField.getText();
-        db = new Database();
         User loggedInUser = db.getUser(username, password);
         if (loggedInUser != null) {
             SceneFactory.loadScene("main-view.fxml", new MainController(loggedInUser), "Main View", (Stage) loginButton.getScene().getWindow());

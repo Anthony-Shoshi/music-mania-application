@@ -1,9 +1,10 @@
 package com.example.musicmaniaapplication.Models;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Order {
+public class Order implements Serializable {
     private String customerFirstName;
     private String customerLastName;
     private String customerPhone;

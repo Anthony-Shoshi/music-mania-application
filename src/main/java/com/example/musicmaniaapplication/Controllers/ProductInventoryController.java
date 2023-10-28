@@ -54,6 +54,7 @@ public class ProductInventoryController implements Initializable {
         SceneFactory.loadDialog("create-product-dialog.fxml", controller, "Create New Product");
         if (controller.getProductItem() != null) {
             products.add(controller.getProductItem());
+            database.serializeDatabase();
         }
     }
 
@@ -71,6 +72,7 @@ public class ProductInventoryController implements Initializable {
                         break;
                     }
                 }
+                database.serializeDatabase();
             }
         }
     }
@@ -86,6 +88,7 @@ public class ProductInventoryController implements Initializable {
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 products.remove(selectedProduct);
             }
+            database.serializeDatabase();
         }
     }
 }

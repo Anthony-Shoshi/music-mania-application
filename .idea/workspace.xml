@@ -4,16 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b2efdd2-db50-49ff-9ac9-b53e85e13250" name="Changes" comment="order history completed">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/CreateProductDialogController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/EditProductDialogController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/ProductInventoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/create-product-dialog.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/edit-product-dialog.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/product-inventory.fxml" afterDir="false" />
+    <list default="true" id="7b2efdd2-db50-49ff-9ac9-b53e85e13250" name="Changes" comment="product inventory completed">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/init/users.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/CreateOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/CreateOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/CreateProductDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/CreateProductDialogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/ProductInventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/ProductInventoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Data/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Data/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Models/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Models/OrderProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Models/OrderProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Models/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/MusicManiaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/MusicManiaApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Utils/Constants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +63,10 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
@@ -71,7 +80,11 @@
       <recent name="D:\Inholland\Term2.1\Java\ClassWork\MusicManiaApplication\src\main\resources\com\example\musicmaniaapplication" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Inholland\Term2.1\Java\ClassWork\MusicManiaApplication\src\main\resources\com\example\musicmaniaapplication\init" />
       <recent name="D:\Inholland\Term2.1\Java\ClassWork\MusicManiaApplication\src\main\resources\com\example\musicmaniaapplication\css" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.musicmaniaapplication" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -101,7 +114,14 @@
       <workItem from="1697932037942" duration="2619000" />
       <workItem from="1697934681246" duration="48000" />
       <workItem from="1697974217095" duration="8440000" />
-      <workItem from="1698041646947" duration="8148000" />
+      <workItem from="1698041646947" duration="8207000" />
+      <workItem from="1698394036968" duration="1127000" />
+      <workItem from="1698395808469" duration="4896000" />
+      <workItem from="1698400883539" duration="302000" />
+      <workItem from="1698401851421" duration="322000" />
+      <workItem from="1698402625615" duration="672000" />
+      <workItem from="1698515326909" duration="4114000" />
+      <workItem from="1698519480658" duration="12290000" />
     </task>
     <task id="LOCAL-00001" summary="login functionality">
       <option name="closed" value="true" />
@@ -159,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697982352992</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="product inventory completed">
+      <option name="closed" value="true" />
+      <created>1698049947885</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1698049947885</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +212,7 @@
     <MESSAGE value="order place functionality" />
     <MESSAGE value="order history design" />
     <MESSAGE value="order history completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="order history completed" />
+    <MESSAGE value="product inventory completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="product inventory completed" />
   </component>
 </project>

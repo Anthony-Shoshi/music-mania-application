@@ -1,36 +1,49 @@
 package com.example.musicmaniaapplication.Data;
 
 import com.example.musicmaniaapplication.Models.*;
+import com.example.musicmaniaapplication.Utils.Constants;
+import com.example.musicmaniaapplication.Utils.Helper;
 
+import java.io.*;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
-public class Database {
+public class Database implements Serializable {
     private List<User> users = new ArrayList<>();
     private List<Product> products = new ArrayList<>();
     private List<OrderProduct> orderProducts = new ArrayList<>();
     private List<Order> orders = new ArrayList<>();
 
     public Database() {
-        //users
-        users.add(new User("anthony", "anthony1@", UserType.Manager));
-        users.add(new User("andrew", "andrew1@", UserType.Sales));
+        if (!isSerializedDataFileExists()) {
+            loadUsersFromCSV();
+        } else {
+            deserializeDatabase();
+        }
+    }
 
-        //products
-        Product product1 = new Product("product 1", "PC", 12, 1200.00, "This is product 1.");
-        Product product2 = new Product("product 2", "Car", 15, 900.00, "This is product 2.");
-        products.add(product1);
-        products.add(product2);
+    private boolean isSerializedDataFileExists() {
+        File file = new File("database.dat");
+        return file.exists();
     }
 
     public User getUser(String username, String password) {
-        for (User user :
-                users) {
+        for (User user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 return user;
             }
         }
         return null;
+    }
+
+    public List<User> getUsers() {
+        return users;
     }
 
     public List<Product> getProducts() {
@@ -44,4 +57,55 @@ public class Database {
     public List<Order> getOrders() {
         return orders;
     }
+
+    public void serializeDatabase() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("database.dat"))) {
+            oos.writeObject(this);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void deserializeDatabase() {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("database.dat"))) {
+            Database deserializedDatabase = (Database) in.readObject();
+            this.users = deserializedDatabase.users;
+            this.products = deserializedDatabase.products;
+            this.orderProducts = deserializedDatabase.orderProducts;
+            this.orders = deserializedDatabase.orders;
+        } catch (FileNotFoundException e) {
+            System.out.println("Serialized file not found. Loading data from users.csv.");
+            loadUsersFromCSV();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadUsersFromCSV() {
+        InputStream inputStream = Helper.class.getResourceAsStream(Constants.TXT_FILE);
+
+        if (inputStream != null) {
+            try (Scanner scanner = new Scanner(inputStream)) {
+                if (scanner.hasNextLine()) {
+                    scanner.nextLine();
+                }
+
+                while (scanner.hasNextLine()) {
+                    String line = scanner.nextLine();
+                    String[] parts = line.split(",");
+
+                    if (parts.length >= 3) {
+                        String username = parts[0];
+                        String password = parts[1];
+                        UserType userType = UserType.valueOf(parts[2]);
+
+                        users.add(new User(username, password, userType));
+                    }
+                }
+            }
+        } else {
+            System.out.println("Input stream is null. Check the file path.");
+        }
+    }
+
 }
