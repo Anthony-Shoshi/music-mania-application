@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -52,6 +53,7 @@ public class SceneFactory {
             Stage dialog = new Stage();
             dialog.setScene(scene);
             dialog.setTitle(title);
+            dialog.initModality(Modality.APPLICATION_MODAL);
             dialog.showAndWait();
         } catch (IOException e) {
             throw new RuntimeException("error in load dialog method: " + e.getMessage());

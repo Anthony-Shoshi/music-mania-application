@@ -38,8 +38,7 @@ public class AddProductDialogController implements Initializable {
         products = FXCollections.observableList(database.getProducts());
         productTableView.setItems(products);
 
-        if (!products.isEmpty())
-        {
+        if (!products.isEmpty()) {
             productTableView.getSelectionModel().selectFirst();
             selectedProduct = products.get(0);
         }
@@ -51,19 +50,29 @@ public class AddProductDialogController implements Initializable {
     }
 
     public void quantityOnChange(StringProperty observable, String oldValue, String newValue) {
-        if (!newValue.matches("\\d*") || newValue.isEmpty()) {
-            quantityErrorMessage.setText("Quantity must be numeric value");
-            productQuantity.setText("");
+        try {
+            int quantity = Integer.parseInt(newValue);
+            if (quantity <= 0) {
+                quantityErrorMessage.setText("Quantity must be a positive value");
+                addToOrder.setDisable(true);
+            } else {
+                quantityErrorMessage.setText("");
+                addToOrder.setDisable(false);
+            }
+        } catch (NumberFormatException e) {
+            quantityErrorMessage.setText("Quantity must be a numeric value");
             addToOrder.setDisable(true);
-        } else {
-            quantityErrorMessage.setText("");
-            addToOrder.setDisable(false);
         }
     }
 
     public void addToOrderClick(ActionEvent event) {
-        orderItem = new OrderProduct(selectedProduct, Integer.parseInt(productQuantity.getText()));
-        closeDialog(event);
+        int quantity = Integer.parseInt(productQuantity.getText());
+        if (selectedProduct.getStock() < quantity) {
+            quantityErrorMessage.setText("Insufficient stock for this product.");
+        } else {
+            orderItem = new OrderProduct(selectedProduct, quantity);
+            closeDialog(event);
+        }
     }
 
     private static void closeDialog(ActionEvent event) {

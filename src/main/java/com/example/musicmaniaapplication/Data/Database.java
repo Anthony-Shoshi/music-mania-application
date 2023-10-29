@@ -62,7 +62,7 @@ public class Database implements Serializable {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("database.dat"))) {
             oos.writeObject(this);
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            Helper.logError("Error while serializing the database: " + e.getMessage());
         }
     }
 
@@ -74,37 +74,41 @@ public class Database implements Serializable {
             this.orderProducts = deserializedDatabase.orderProducts;
             this.orders = deserializedDatabase.orders;
         } catch (FileNotFoundException e) {
-            System.out.println("Serialized file not found. Loading data from users.csv.");
+            Helper.logError("Serialized file not found. Loading data from users.csv.");
             loadUsersFromCSV();
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            Helper.logError("Error while deserializing the database: " + e.getMessage());
         }
     }
 
     public void loadUsersFromCSV() {
-        InputStream inputStream = Helper.class.getResourceAsStream(Constants.TXT_FILE);
+        try {
+            InputStream inputStream = Helper.class.getResourceAsStream(Constants.USER_FILE);
 
-        if (inputStream != null) {
-            try (Scanner scanner = new Scanner(inputStream)) {
-                if (scanner.hasNextLine()) {
-                    scanner.nextLine();
-                }
+            if (inputStream != null) {
+                try (Scanner scanner = new Scanner(inputStream)) {
+                    if (scanner.hasNextLine()) {
+                        scanner.nextLine();
+                    }
 
-                while (scanner.hasNextLine()) {
-                    String line = scanner.nextLine();
-                    String[] parts = line.split(",");
+                    while (scanner.hasNextLine()) {
+                        String line = scanner.nextLine();
+                        String[] parts = line.split(",");
 
-                    if (parts.length >= 3) {
-                        String username = parts[0];
-                        String password = parts[1];
-                        UserType userType = UserType.valueOf(parts[2]);
+                        if (parts.length >= 3) {
+                            String username = parts[0];
+                            String password = parts[1];
+                            UserType userType = UserType.valueOf(parts[2]);
 
-                        users.add(new User(username, password, userType));
+                            users.add(new User(username, password, userType));
+                        }
                     }
                 }
+            } else {
+                Helper.logError("Input stream is null. Check the file path.");
             }
-        } else {
-            System.out.println("Input stream is null. Check the file path.");
+        } catch (Exception e) {
+            Helper.logError("Error while loading users from CSV: " + e.getMessage());
         }
     }
 

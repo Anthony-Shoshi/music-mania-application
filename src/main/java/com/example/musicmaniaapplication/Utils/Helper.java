@@ -12,7 +12,11 @@ public class Helper {
             Image image = new Image(inputStream);
             logo.setImage(image);
         } else {
-            System.out.println("Input stream is null. Check the file path.");
+            System.err.println("Input stream is null. Check the file path.");
         }
+    }
+
+    public static void logError(String errorMessage) {
+        System.err.println(errorMessage);
     }
 }

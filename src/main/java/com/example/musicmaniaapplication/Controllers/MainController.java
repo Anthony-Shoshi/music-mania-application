@@ -42,9 +42,9 @@ public class MainController implements Initializable {
 
     private void menuShowHide() {
         UserType userType = loggedInUser.getUserType();
-        if (userType == UserType.Manager) {
+        if (userType == UserType.MANAGER) {
             hideMenuButton(createOrderButton);
-        } else if (userType == UserType.Sales) {
+        } else if (userType == UserType.SALES) {
             hideMenuButton(productInventoryButton);
         }
     }

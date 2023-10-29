@@ -52,6 +52,9 @@ public class CreateOrderController implements Initializable {
         orderProducts = FXCollections.observableList(database.getOrderProducts());
         orderItemTableView.setItems(orderProducts);
 
+        orderErrorMessage.setText("");
+        orderErrorMessage.setTextFill(Color.RED);
+
         addCustomColumns();
 
         orderItemTableView.getSelectionModel().selectedItemProperty().addListener((ChangeListener<OrderProduct>) (observableValue, oldOrderProduct, newOrderProduct) -> selectedProduct = newOrderProduct);
@@ -100,8 +103,12 @@ public class CreateOrderController implements Initializable {
             orderErrorMessage.setText("Last Name field is required.");
         } else if (cusEmail.isEmpty()) {
             orderErrorMessage.setText("Email field is required.");
+        } else if (!isValidEmail(cusEmail)) {
+            orderErrorMessage.setText("Invalid Email format.");
         } else if (cusPhone.isEmpty()) {
             orderErrorMessage.setText("Phone Number field is required.");
+        } else if (!isValidPhoneNumber(cusPhone)) {
+            orderErrorMessage.setText("Phone Number must be a 10-digit numeric value.");
         } else {
             orderErrorMessage.setTextFill(Color.GREEN);
             orderErrorMessage.setText("Order placed successfully!");
@@ -124,6 +131,20 @@ public class CreateOrderController implements Initializable {
             product.getProduct().setStock(product.getProduct().getStock() - product.getQuantity());
             database.serializeDatabase();
         }
+    }
+
+    private boolean isValidEmail(String email) {
+        if (email.contains("@") && email.contains(".")) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isValidPhoneNumber(String phoneNumber) {
+        if (phoneNumber.length() == 10 && phoneNumber.matches("\\d+")) {
+            return true;
+        }
+        return false;
     }
 
     private void resetOrderForm() {
