@@ -9,16 +9,14 @@ Welcome to the Music Mania Application! This is a simple JavaFX application for 
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Usage](#usage)
 - [Login Credentials](#login-credentials)
-- [License](#license)
 
 ## Demo
 
-Manager Dashboard
+### Manager Dashboard
 ![m](https://github.com/Anthony-Shoshi/music-mania-application/assets/41549963/5730946e-beec-4bbb-a1bc-bfc6e153b819)
 
-Sales Dashboard
+### Sales Dashboard
 ![s](https://github.com/Anthony-Shoshi/music-mania-application/assets/41549963/2c37a2bb-e827-4b72-8dde-bafa90a66bcd)
 
 
@@ -47,3 +45,31 @@ To set up the project, follow these steps:
 
    ```bash
    git clone https://github.com/Anthony-Shoshi/music-mania-application
+
+2. Change your current working directory to the project folder:
+   
+   ```bash
+   cd music-mania-application
+
+4. Use the provided Gradle wrapper to build the application. This command will download any necessary dependencies:
+   
+   ```bash
+   ./gradlew build
+
+5. To start the application, use the following command:
+   ```bash
+   ./gradlew run
+
+6. That's it! Use the credentials given below
+
+### Login Credentials
+
+Use the provided login credentials to access the application:
+
+**Manager:**
+- Username: manager
+- Password: manager@2023
+
+**Sales:**
+- Username: sales
+- Password: sales@2023
