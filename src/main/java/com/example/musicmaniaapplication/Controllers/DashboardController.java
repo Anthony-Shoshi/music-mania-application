@@ -13,16 +13,25 @@ public class DashboardController {
     private final LocalDateTime localDateTime = LocalDateTime.now();
     private final String currentDateTime;
     private final User loggedInUser;
+    private String userDisplayName;
 
     public DashboardController(User loggedInUser) {
-        currentDateTime = formatCurrentDateTime();
         this.loggedInUser = loggedInUser;
+        currentDateTime = formatCurrentDateTime();
+        userDisplayName = capitalizeFirstLetter(loggedInUser.getUsername());
     }
 
     public void initialize() {
         if (loggedInUser != null) {
             setDashboardContent();
         }
+    }
+
+    public static String capitalizeFirstLetter(String input) {
+        if (input == null || input.isEmpty()) {
+            return input;
+        }
+        return input.substring(0, 1).toUpperCase() + input.substring(1);
     }
 
     private String formatCurrentDateTime() {
@@ -32,7 +41,7 @@ public class DashboardController {
     }
 
     private void setDashboardContent() {
-        username.setText("Welcome " + loggedInUser.getUsername());
+        username.setText("Welcome " + userDisplayName);
         role.setText("Your role is: " + loggedInUser.getUserType());
         currentTime.setText("It is now: " + currentDateTime);
     }
