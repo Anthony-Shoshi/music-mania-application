@@ -75,17 +75,17 @@ public class LoginController {
 
     public void handleSubmitButtonAction() {
         try {
-            if (attemptCount >= 3) {
+            if (attemptCount > 3) {
                 throw new AccountLockedException("Your account has been locked");
             } else {
                 String username = this.username.getText();
                 String password = passwordField.getText();
                 User loggedInUser = db.getUser(username, password);
                 if (loggedInUser != null) {
+                    attemptCount = 0;
                     SceneFactory.loadScene("main-view.fxml", new MainController(loggedInUser), "Main View", (Stage) loginButton.getScene().getWindow());
                 } else {
                     attemptCount++;
-                    System.out.println("att " + attemptCount);
                     displayMessage.setText("Incorrect username or password. Please try again.");
                 }
             }

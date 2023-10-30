@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b2efdd2-db50-49ff-9ac9-b53e85e13250" name="Changes" comment="load default products">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Utils/AccountLockedException.java" afterDir="false" />
+    <list default="true" id="7b2efdd2-db50-49ff-9ac9-b53e85e13250" name="Changes" comment="login attempt exception handling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/AddProductDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/AddProductDialogController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/musicmaniaapplication/Controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/add-product-dialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/musicmaniaapplication/add-product-dialog.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +120,7 @@
       <workItem from="1698627879384" duration="74000" />
       <workItem from="1698628163638" duration="90000" />
       <workItem from="1698661721534" duration="1023000" />
-      <workItem from="1698662819814" duration="3696000" />
+      <workItem from="1698662819814" duration="5973000" />
     </task>
     <task id="LOCAL-00001" summary="login functionality">
       <option name="closed" value="true" />
@@ -225,7 +226,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698662782688</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="login attempt exception handling">
+      <option name="closed" value="true" />
+      <created>1698667000529</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1698667000529</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,6 +265,7 @@
     <MESSAGE value="fixed errors and exceptions" />
     <MESSAGE value="fixed quantity issue and text" />
     <MESSAGE value="load default products" />
-    <option name="LAST_COMMIT_MESSAGE" value="load default products" />
+    <MESSAGE value="login attempt exception handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="login attempt exception handling" />
   </component>
 </project>

@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="428.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
 
-    <Label layoutX="20.0" layoutY="174.0" text="Select Product" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+    <Label layoutX="20.0" layoutY="15.0" text="Select Product" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
         <font>
             <Font name="System Bold" size="18.0" />
         </font>
     </Label>
-    <TableView fx:id="productTableView" layoutX="14.0" layoutY="47.0" prefHeight="231.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+    <TableView fx:id="productTableView" layoutX="20.0" layoutY="78.0" prefHeight="231.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
         <columns>
             <TableColumn minWidth="60.0" prefWidth="75.0" text="Stock">
                 <cellValueFactory>
@@ -42,14 +42,14 @@
             </TableColumn>
         </columns>
     </TableView>
-   <HBox layoutX="20.0" layoutY="302.0" spacing="20.0" AnchorPane.leftAnchor="20.0">
+   <HBox layoutX="20.0" layoutY="324.0" spacing="20.0" AnchorPane.leftAnchor="20.0">
       <children>
          <Label text="Quantity:" />
          <TextField fx:id="productQuantity" onTextChange="#quantityOnChange" />
       </children>
    </HBox>
    <Label fx:id="quantityErrorMessage" layoutX="89.0" layoutY="329.0" textFill="RED" />
-    <HBox layoutX="24.0" layoutY="355.0" spacing="10.0" AnchorPane.leftAnchor="24.0">
+    <HBox layoutX="24.0" layoutY="355.0" spacing="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0">
         <children>
             <Button fx:id="addToOrder" disable="true" mnemonicParsing="false" onAction="#addToOrderClick" text="Add to Order" />
             <Button mnemonicParsing="false" onAction="#cancelClick" text="Cancel" />
@@ -61,4 +61,6 @@
          <Insets bottom="20.0" />
       </padding>
     </HBox>
+   <Label layoutX="20.0" layoutY="50.0" text="Search: " AnchorPane.leftAnchor="20.0" />
+   <TextField fx:id="searchBox" onTextChange="#searchOnChange" layoutX="69.0" layoutY="46.0" />
 </AnchorPane>

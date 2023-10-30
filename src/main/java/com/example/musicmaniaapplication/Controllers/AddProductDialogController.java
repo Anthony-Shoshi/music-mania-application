@@ -16,12 +16,14 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AddProductDialogController implements Initializable {
 
     public TableView productTableView;
     public TextField productQuantity;
+    public TextField searchBox;
     public Label quantityErrorMessage;
     public Button addToOrder;
     private ObservableList<Product> products;
@@ -62,6 +64,20 @@ public class AddProductDialogController implements Initializable {
         } catch (NumberFormatException e) {
             quantityErrorMessage.setText("Quantity must be a numeric value");
             addToOrder.setDisable(true);
+        }
+    }
+
+    public void searchOnChange(StringProperty observable, String oldValue, String newValue) {
+        if (newValue.length() > 2) {
+            ObservableList<Product> filteredProducts = FXCollections.observableArrayList();
+            for (Product product : products) {
+                if (product.getName().toLowerCase().contains(newValue.toLowerCase())) {
+                    filteredProducts.add(product);
+                }
+            }
+            productTableView.setItems(filteredProducts);
+        } else {
+            productTableView.setItems(products);
         }
     }
 
