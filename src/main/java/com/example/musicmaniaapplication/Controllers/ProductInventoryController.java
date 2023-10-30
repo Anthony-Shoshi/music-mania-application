@@ -8,18 +8,30 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.stream.Stream;
 
 public class ProductInventoryController implements Initializable {
     @FXML
     public TableView productTableView;
+    @FXML
+    public Button importProducts;
+    @FXML
+    public Label productInventoryMsg;
     private Database database;
     private ObservableList<Product> products;
     private Product selectedProduct;
@@ -47,6 +59,56 @@ public class ProductInventoryController implements Initializable {
             productTableView.getSelectionModel().selectFirst();
             selectedProduct = products.get(0);
         }
+    }
+
+    public void importProductsFromCsv() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        File selectedFile = fileChooser.showOpenDialog(importProducts.getScene().getWindow());
+
+        if (selectedFile != null) {
+            List<Product> importedProducts = readProductsFromCSV(selectedFile);
+            if (!importedProducts.isEmpty()) {
+                database.getProducts().addAll(importedProducts);
+                database.serializeDatabase();
+                products = FXCollections.observableList(database.getProducts());
+                productTableView.setItems(products);
+                productInventoryMsg.setTextFill(Color.GREEN);
+                productInventoryMsg.setText("Products imported successfully.");
+            } else {
+                productInventoryMsg.setTextFill(Color.RED);
+                productInventoryMsg.setText("No valid products found in the CSV file.");
+            }
+        } else {
+            productInventoryMsg.setTextFill(Color.RED);
+            productInventoryMsg.setText("No file selected.");
+        }
+    }
+
+    private List<Product> readProductsFromCSV(File file) {
+        List<Product> importedProducts = new ArrayList<>();
+        Path filePath = file.toPath();
+        try {
+            List<String> lines = Files.readAllLines(filePath);
+            for (int i = 1; i < lines.size(); i++) {
+                String line = lines.get(i);
+                String[] parts = line.split(";");
+                if (parts.length == 5) {
+                    String name = parts[0];
+                    String category = parts[1];
+                    int stock = Integer.parseInt(parts[4]);
+                    double price = Double.parseDouble(parts[2]);
+                    String description = parts[3];
+                    importedProducts.add(new Product(name, category, stock, price, description));
+                } else {
+                    productInventoryMsg.setText("Skipped an invalid line in the CSV file.");
+                }
+            }
+        } catch (IOException e) {
+            productInventoryMsg.setText("Error while reading the CSV file: " + e.getMessage());
+        }
+
+        return importedProducts;
     }
 
     public void addProduct() {

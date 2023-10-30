@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
 
-    <Label layoutX="20.0" layoutY="174.0" text="Select Product" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+    <Label layoutX="20.0" layoutY="13.0" text="Select Product" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
         <font>
             <Font name="System Bold" size="18.0" />
         </font>
@@ -48,5 +48,7 @@
             <Button mnemonicParsing="false" onAction="#deleteProduct" text="Delete Product" />
         </children>
     </HBox>
+   <Button fx:id="importProducts" layoutX="508.0" layoutY="14.0" mnemonicParsing="false" onAction="#importProductsFromCsv" text="Import Products" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0" />
+   <Label fx:id="productInventoryMsg" layoutX="204.0" layoutY="20.0" textFill="RED" />
 
 </AnchorPane>
