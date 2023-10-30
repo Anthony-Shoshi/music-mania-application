@@ -32,7 +32,7 @@ public class EditProductDialogController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         productName.setText(selectedProduct.getName());
-        productCategory.setText(selectedProduct.getName());
+        productCategory.setText(selectedProduct.getCategory());
         productPrice.setText(Double.toString(selectedProduct.getPrice()));
         productStock.setText(Integer.toString(selectedProduct.getStock()));
         productDescription.setText(selectedProduct.getDescription());

@@ -44,7 +44,7 @@
     <HBox layoutX="20.0" layoutY="293.0" spacing="10.0" AnchorPane.bottomAnchor="82.0" AnchorPane.leftAnchor="20.0">
         <children>
             <Button mnemonicParsing="false" onAction="#addProduct" text="Add Product" />
-            <Button mnemonicParsing="false" onAction="#editProduct" text="Edit Order" />
+            <Button mnemonicParsing="false" onAction="#editProduct" text="Edit Product" />
             <Button mnemonicParsing="false" onAction="#deleteProduct" text="Delete Product" />
         </children>
     </HBox>

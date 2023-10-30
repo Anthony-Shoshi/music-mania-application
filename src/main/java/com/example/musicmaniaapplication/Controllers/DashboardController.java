@@ -42,7 +42,7 @@ public class DashboardController {
 
     private void setDashboardContent() {
         username.setText("Welcome " + userDisplayName);
-        role.setText("Your role is: " + loggedInUser.getUserType());
+        role.setText("Your role is: " + loggedInUser.getUserType().toString().charAt(0) + loggedInUser.getUserType().toString().substring(1).toLowerCase());
         currentTime.setText("It is now: " + currentDateTime);
     }
 }

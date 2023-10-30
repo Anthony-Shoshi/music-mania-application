@@ -16,7 +16,7 @@
             <HBox spacing="15.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#createButtonClick" text="Create" />
-                  <Button mnemonicParsing="false" onAction="#closeButtonClick" text="Create" />
+                  <Button mnemonicParsing="false" onAction="#closeButtonClick" text="Close" />
                </children>
             </HBox>
          </children>

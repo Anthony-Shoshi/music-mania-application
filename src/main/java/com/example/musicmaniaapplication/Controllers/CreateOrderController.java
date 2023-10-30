@@ -52,9 +52,6 @@ public class CreateOrderController implements Initializable {
         orderProducts = FXCollections.observableList(database.getOrderProducts());
         orderItemTableView.setItems(orderProducts);
 
-        orderErrorMessage.setText("");
-        orderErrorMessage.setTextFill(Color.RED);
-
         addCustomColumns();
 
         orderItemTableView.getSelectionModel().selectedItemProperty().addListener((ChangeListener<OrderProduct>) (observableValue, oldOrderProduct, newOrderProduct) -> selectedProduct = newOrderProduct);
@@ -85,11 +82,16 @@ public class CreateOrderController implements Initializable {
         if (selectedProduct == null) {
             orderErrorMessage.setText("Please select product to remove.");
         } else {
+            updateStock();
             orderProducts.remove(selectedProduct);
             orderErrorMessage.setText("");
             orderErrorMessage.setTextFill(Color.RED);
             database.serializeDatabase();
         }
+    }
+
+    private void updateStock() {
+        selectedProduct.getProduct().setStock(selectedProduct.getProduct().getStock() + selectedProduct.getQuantity());
     }
 
     public void createOrderClick() {
@@ -120,16 +122,7 @@ public class CreateOrderController implements Initializable {
             database.getOrders().add(order);
             database.serializeDatabase();
 
-            updateStock();
             resetOrderForm();
-        }
-    }
-
-    private void updateStock() {
-        for (OrderProduct product :
-                orderProducts) {
-            product.getProduct().setStock(product.getProduct().getStock() - product.getQuantity());
-            database.serializeDatabase();
         }
     }
 
@@ -150,6 +143,7 @@ public class CreateOrderController implements Initializable {
     private void resetOrderForm() {
         selectedProduct = null;
         orderProducts.clear();
+        database.serializeDatabase();
         customerFirstName.setText("");
         customerLastName.setText("");
         customerEmail.setText("");

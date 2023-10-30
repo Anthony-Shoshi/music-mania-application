@@ -71,6 +71,7 @@ public class AddProductDialogController implements Initializable {
             quantityErrorMessage.setText("Insufficient stock for this product.");
         } else {
             orderItem = new OrderProduct(selectedProduct, quantity);
+            selectedProduct.setStock(selectedProduct.getStock() - quantity);
             closeDialog(event);
         }
     }
