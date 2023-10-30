@@ -23,6 +23,7 @@ public class Database implements Serializable {
     public Database() {
         if (!isSerializedDataFileExists()) {
             loadUsersFromCSV();
+            loadProductsFromCSV();
         } else {
             deserializeDatabase();
         }
@@ -76,6 +77,7 @@ public class Database implements Serializable {
         } catch (FileNotFoundException e) {
             Helper.logError("Serialized file not found. Loading data from users.csv.");
             loadUsersFromCSV();
+            loadProductsFromCSV();
         } catch (IOException | ClassNotFoundException e) {
             Helper.logError("Error while deserializing the database: " + e.getMessage());
         }
@@ -109,6 +111,39 @@ public class Database implements Serializable {
             }
         } catch (Exception e) {
             Helper.logError("Error while loading users from CSV: " + e.getMessage());
+        }
+    }
+
+    public void loadProductsFromCSV() {
+        try {
+            InputStream inputStream = Helper.class.getResourceAsStream(Constants.PRODUCT_FILE);
+
+            if (inputStream != null) {
+                try (Scanner scanner = new Scanner(inputStream)) {
+                    if (scanner.hasNextLine()) {
+                        scanner.nextLine();
+                    }
+
+                    while (scanner.hasNextLine()) {
+                        String line = scanner.nextLine();
+                        String[] parts = line.split(",");
+
+                        if (parts.length >= 3) {
+                            String name = parts[0];
+                            String category = parts[1];
+                            int stock = Integer.parseInt(parts[2]);
+                            double price = Double.parseDouble(parts[3]);
+                            String description = parts[4];
+
+                            products.add(new Product(name, category, stock, price, description));
+                        }
+                    }
+                }
+            } else {
+                Helper.logError("Input stream is null. Check the file path.");
+            }
+        } catch (Exception e) {
+            Helper.logError("Error while loading products from CSV: " + e.getMessage());
         }
     }
 
