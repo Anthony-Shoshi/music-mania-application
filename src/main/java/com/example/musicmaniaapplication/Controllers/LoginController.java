@@ -3,14 +3,13 @@ package com.example.musicmaniaapplication.Controllers;
 import com.example.musicmaniaapplication.Controllers.MainController;
 import com.example.musicmaniaapplication.Data.Database;
 import com.example.musicmaniaapplication.Models.User;
+import com.example.musicmaniaapplication.Utils.AccountLockedException;
 import com.example.musicmaniaapplication.Utils.Constants;
 import com.example.musicmaniaapplication.Utils.Helper;
 import com.example.musicmaniaapplication.Utils.SceneFactory;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -25,8 +24,8 @@ public class LoginController {
     public Button loginButton;
     public Label displayMessage;
     public ImageView logo;
-
     private Database db;
+    private int attemptCount = 0;
 
     public LoginController() {
         db = new Database();
@@ -75,14 +74,38 @@ public class LoginController {
     }
 
     public void handleSubmitButtonAction() {
-        String username = this.username.getText();
-        String password = passwordField.getText();
-        User loggedInUser = db.getUser(username, password);
-        if (loggedInUser != null) {
-            SceneFactory.loadScene("main-view.fxml", new MainController(loggedInUser), "Main View", (Stage) loginButton.getScene().getWindow());
-        } else {
-            displayMessage.setText("Incorrect username or password. Please try again.");
+        try {
+            if (attemptCount >= 3) {
+                throw new AccountLockedException("Your account has been locked");
+            } else {
+                String username = this.username.getText();
+                String password = passwordField.getText();
+                User loggedInUser = db.getUser(username, password);
+                if (loggedInUser != null) {
+                    SceneFactory.loadScene("main-view.fxml", new MainController(loggedInUser), "Main View", (Stage) loginButton.getScene().getWindow());
+                } else {
+                    attemptCount++;
+                    System.out.println("att " + attemptCount);
+                    displayMessage.setText("Incorrect username or password. Please try again.");
+                }
+            }
+        } catch (AccountLockedException e) {
+            handleAccountLockException(e.getMessage());
         }
+    }
+
+    private void handleAccountLockException(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Exception");
+        alert.setHeaderText("Account Locked");
+        alert.setContentText(message);
+
+        ButtonType okButton = new ButtonType("OK");
+        alert.getButtonTypes().setAll(okButton);
+
+        alert.setOnCloseRequest(event -> SceneFactory.closeScene((Stage) loginButton.getScene().getWindow()));
+
+        alert.showAndWait();
     }
 
 }

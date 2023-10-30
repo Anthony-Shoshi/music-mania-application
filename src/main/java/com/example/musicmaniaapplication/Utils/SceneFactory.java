@@ -59,4 +59,8 @@ public class SceneFactory {
             throw new RuntimeException("error in load dialog method: " + e.getMessage());
         }
     }
+
+    public static void closeScene(Stage window){
+        window.close();
+    }
 }
