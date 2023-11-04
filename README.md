@@ -14,10 +14,12 @@ Welcome to the Music Mania Application! This is a simple JavaFX application for 
 ## Demo
 
 ### Manager Dashboard
-![m](https://github.com/Anthony-Shoshi/music-mania-application/assets/41549963/5730946e-beec-4bbb-a1bc-bfc6e153b819)
+![m](https://github.com/Anthony-Shoshi/music-mania-application/assets/41549963/fffdf4c4-fd40-4661-bec7-21bfa8599db5)
+
 
 ### Sales Dashboard
-![s](https://github.com/Anthony-Shoshi/music-mania-application/assets/41549963/2c37a2bb-e827-4b72-8dde-bafa90a66bcd)
+![s](https://github.com/Anthony-Shoshi/music-mania-application/assets/41549963/5bc322d5-d353-49e6-ba02-323bd94bcaf7)
+
 
 
 ## Features
